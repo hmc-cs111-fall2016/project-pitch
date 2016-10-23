@@ -1,12 +1,14 @@
-# Project Title (replace me)
+# Sight Reading for All
 
 ## Describe your project in five words
+Automatic Sight Reading Material Generation
 
 ## Audience
 _Who are you helping, with your language? What is that person's
 experience like now? How would their experience be better if you could help 
 them?_
 
+The target audience is musicians of all levels. Currently, it is fairly difficult
 
 ## Why a language?
 _Why is a **DSL** appropriate for your user(s)? How does it address the need?_
