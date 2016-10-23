@@ -190,6 +190,7 @@ require a large amount of implementation work.
 
 ## Scope
 _How big an idea is this? How ambitious is this project?_
+
 I think this project has a moderate scope. At it's simplest it is quite simple.
 Just put in bids in cards in some order and output them in a nicer format. However,
 there are many more features for outputting and a few more descriptions that can
