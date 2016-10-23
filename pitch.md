@@ -72,7 +72,7 @@ I'm currently thinking that the user will input the hand in a format that is
 convenient to be inputted for them and then the program will handle displaying
 the data in an easy to read manner for people wanting to analyze the hand. I think
 a hand diagram in text format might make sense for the output. Something like
-
+```
         xx
         xx
         xxxxx
@@ -86,6 +86,7 @@ x              xxxxx
         xxx
         xxx
         xxx
+```
 where x's are replaced with the actual cards.
 
 ## Operation (semantics)
