@@ -8,7 +8,9 @@ _Who are you helping, with your language? What is that person's
 experience like now? How would their experience be better if you could help 
 them?_
 
-The target audience is musicians of all levels. Currently, it is fairly difficult
+The target audience is musicians of all levels. Currently, it is fairly difficult asdf
+asdf asdf asdf assdf asdf asdf asdf asdf sadf asdf asdf asdf assdf asdf asdf asdf asdf sadf 
+asdf asdf asdf assdf asdf asdf asdf asdf sadf asdf asdf asdf assdf asdf asdf asdf asdf sadf 
 
 ## Why a language?
 _Why is a **DSL** appropriate for your user(s)? How does it address the need?_
