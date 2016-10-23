@@ -1,4 +1,4 @@
-# 
+# To-Do List Organizer
 
 ## Describe your project in five words
 Chronological to-do lists from categories
@@ -99,3 +99,19 @@ I think that will help users who do not have the background in computer science.
 _Why is this a good project? What are some challenges you expect to face? How
 might you overcome them? What are some warning signs that the project has gotten
 off track, and how will you get the project back on track if needed?_
+This will be a good projects because it will fit our week-by-week based development.
+This is a project that will be very easy to get done in chunks, starting with just
+the bare bones of the project and then building up the syntactic sugar that makes it
+easy to use and more features depending on the amount of time each part takes. I think
+some design issues will come up in trying to figure out if there is a universally simple
+way to give to-do lists as programs that everyone, especially non-programmers, will
+understand. There will probably also be some coding problems of figuring out how
+I want the IR to look (and how many levels of IR I want).  
+
+One way that I will know that this project has gotten out of hand is when the syntax
+has gotten out of hand. As I mentioned in the syntax discussion, right now I figure
+that the syntax will be rather simple. At first, it may be complicated because the
+sugar will not be my main prority. However, after adding sugar it will be a sign
+that I have added too many features when the syntax becomes too cluttered and hard to
+read. At that point, I will want to figure out what features to remove to make the syntax
+clean and easy to read and write.
