@@ -51,7 +51,7 @@ corresponds with your domain? How does a program interact with the
 user? What kinds of semantic (i.e., non-syntax) errors might occur, and how 
 might they be communicated to the user?_
 
-The computational model is "Data Interpretation". 
+The computational model that encapsulates this DSL is "Data Interpretation". The program runs in a while loop that continually checks if a key is pressed. When a key is pressed, either the loop will exit or a sound and animation is made and the loop continues. The former case occurs when the user to trying to record/delete layers of sound, before eventually resuming the while loop. A user may press a key that has no behavior defined in the program. This is not really a problem as the program "listens" for certain keys and will simply do nothing when other keys are pressed. 
 
 ## Expressiveness
 _What should be easy to do in this language? What should be possible, but
@@ -79,12 +79,17 @@ the **language** aspects of this project (e.g., making language design
 decisions), as opposed to "systems" aspects of the project (e.g., implementing a
 complicated semantics that doesn't require a lot of language design)?_
 
+I think this project has a 60/40 split: a majority of the time would be spent on implementation (ex: creating unique animations) while the rest would be spent on language aspects like designing the recording part of the project and thinking of unique animations and finding appropriate sounds. 
 
 ## Scope
 _How big an idea is this? How ambitious is this project?_
-
+I don't think this project is too ambitious. I could have up to 26 animations to design and implement, but the scope is within control - the number of animations and the detail of the animation is up to me. The tricky part is designing the recording aspect and implementing it. 
 
 ## Challenges and opportunities
 _Why is this a good project? What are some challenges you expect to face? How
 might you overcome them? What are some warning signs that the project has gotten
 off track, and how will you get the project back on track if needed?_
+
+Besides the recording aspect, the syntax is very straightforward. The challenges would be designing an intuitive way to do the recording part of the project  and thinking of unique animations. There is also the language design choice of how the keys and animations interact (explored in the syntax section, although it relates more to semantics). I think implementing the animations would also be challenging as I am not experienced in this domain, and I may have to learn a JS framework to help with this. 
+
+I think the project has gotten off track if I spend too long on implementing the animations or am not making good progress on the recording aspect. I could shift my priority to the recording aspect and make simpler animations, building on this MVP in the future
