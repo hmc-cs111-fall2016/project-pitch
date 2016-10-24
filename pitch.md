@@ -65,15 +65,15 @@ involve string manipulation.
 There are two main properties that distinguish one move from another:
 
 1. Where the glowsticks are in relation to the body
-	a. Plane
-		i. Wall - perpendicular to front or back of body
-		ii. Wheel - perpendicular to left or right of body
-		iii. Floor - perpendicular to the floor
-	b. Is the arm rotating (moving in circles), and if so, counterclockwise or clockwise?
-	c. Is the glowstick moving counterclockwise or clockwise relative to the hand?
-	d. Start and end position of the hand after one full 360° circle.
+	* Plane
+		1. Wall - perpendicular to front or back of body
+		2. Wheel - perpendicular to left or right of body
+		3. Floor - perpendicular to the floor
+	* Is the arm rotating (moving in circles), and if so, counterclockwise or clockwise?
+	* Is the glowstick moving counterclockwise or clockwise relative to the hand?
+	* Start and end position of the hand after one full 360° circle.
 2. Where the glowsticks are in relation to each other
-	a. This can be represented as offset angle phases, as many moves have both glowsticks doing the same motion but starting at different phase positions.
+	* This can be represented as offset angle phases, as many moves have both glowsticks doing the same motion but starting at different phase positions.
 
 Ideally, with this information, we can build individual tricks based on these 
 properties for a "full circle".
