@@ -221,3 +221,10 @@ Overall, I think the language component seems much smaller than the "systems" as
 possibility for extensibilityby allowing the user to indicate the time signature, length of the note, and rests 
 to create a very simple score. However, this would probably end up adding even more to the systems aspect. 
 
+
+
+# More information about the needs user and about the suitability of the idea as a CS 111 project (all the angles, the benefits and drawbacks, risks, etc.)
+
+# Challenges of the project and my current open questions about the project
+
+# Initial, well-reasoned speculation about how the implementation will proceed, including: what you plan to work on first, whether the project might work best as an internal or external language, candidates for potential host languages, etc.
