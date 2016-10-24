@@ -34,7 +34,9 @@ important to users and what kinds of values those properties might have._
 There's going to be a method that takes in a filename of an image as a string,
 "generate (String filename)", for example. The image that the user wishes to 
 convert into a coloring page has to be in the same directory as the code that 
-has this method.
+has this method. As of now, I plan to have the image filename to end with ".png"
+because that is the only format of images that I have dealt with, even though
+that experience was significantly small. 
 There may be a few different versions of this "generate" method that generates
 coloring pages with a different modifications. 
 I imagine that the syntax is not going to be that complicated because the main
