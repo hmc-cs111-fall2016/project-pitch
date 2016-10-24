@@ -139,13 +139,31 @@ Then the program puts this output into a LilyPond program, and LilyPond actually
 
 # How does a program interact with the user? 
 
+The program asks the user to submit a txt file with the list of chords, each chord on one line of the txt file. 
+
 # What kinds of semantic (i.e., non-syntax) errors might occur, and how might they be communicated to the user?_
 
+There are ways to express a chord that may be outside of what I'm programming my parser to be able to understand. For example,
+I am parsing "Maj" and "Major" as a major chord. However, it's possible that a non-standard input might be "MAJOR" or "MAJ" or
+"Maj." My program could suggest a few possible key words that can replace the input, and tell the user which line threw an error.
 
-## Expressiveness
-_What should be easy to do in this language? What should be possible, but
-difficult? What should be impossible or very difficult?_
+It's also possible that the chord sheet proposes a chord that doesn't exist (typo). The user might copy/paste
+in the name of a chord such as T Major with an inversion of 6/2. In this case, the program doesn't recognize T as a 
+possible root, and it would return that in an error message.
 
+### Expressiveness
+# What should be easy to do in this language?
+What should be really easy is to generate at least the names of all the notes that comprise a given chord that the user specifies.
+
+# What should be possible, but difficult? 
+What should be possible, but difficult, is to add a sound component to the program. 
+After the program determines the notes in a chord, presents a visual representation of the chord on a musical staff, 
+it might also have the functionality of playing the chord, note by note from the bottom note to the top note. 
+
+# What should be impossible or very difficult?
+
+What should be impossible is something outside the domain of generating the duration (length) of each chord. 
+There will be no opportunity for the user to input this sort of information.
 
 ## Related work
 _Are there any other DSLs in this domain? If not, describe how you know there
@@ -153,19 +171,46 @@ aren't and conjecture why not. If so, describe them and provide links. How well
 do they address the need? Are there any particularly admirable qualities of the
 language? Are there parts of the language you think could be improved?_
 
+I searched google and scoured various composing tool threads with the following key phrases
+“chord name sheet music converter", "generate sheet music", "generate chords on sheet music",
+and didn’t find any existing DSL that is similar to my idea.
 
-## Suitability
+This could be because most people who play accompaniment music play the guitar -- 
+there actually exists many "chord identifier" / "reverse chord finder" tools that prompt users to select 
+fingering positions on a guitar and then show users what possible chords are comprised of those notes. 
+
+
+### Suitability
 _What percentage of your time do you think will be spent directly engaging in
 the **language** aspects of this project (e.g., making language design
 decisions), as opposed to "systems" aspects of the project (e.g., implementing a
 complicated semantics that doesn't require a lot of language design)?_
 
+I don't think there will be a lot of language decisions -- 
+the input I need only requires 4 basic pieces of information from the user, probably in the form of some combination of text boxes / drop-down menus / check boxes.
 
-## Scope
-_How big an idea is this? How ambitious is this project?_
 
+### Scope
+# How big an idea is this? How ambitious is this project?
 
-## Challenges and opportunities
+I don't think this idea is too ambitious -- it's very easy to generate the names of the notes in a chord given the root, 
+type of chord, and inversion. The tricky part would be to translate that into a visual representation of the chord. 
+Maybe I could have a staff with ovals that represent each note, and after I generate the names and order of the notes 
+in the chord, I could just enable those notes to be "visible" on the staff, and allow the user to download an image of the generated chord on the staff. 
+
+### Challenges and opportunities
 _Why is this a good project? What are some challenges you expect to face? How
 might you overcome them? What are some warning signs that the project has gotten
 off track, and how will you get the project back on track if needed?_
+
+
+I think this project really fits the bill of being a domain specific language, 
+and will hopefully provide a helpful abstraction for the process of actually writing out each of the notes of a chord 
+on a musical staff. 
+
+This might not be a good idea because it involves writing notes on a staff, which may require my language to communicate 
+with an existing composition software. I can understand how to generate all the notes of a chord (given a root and key 
+signature of a chord, I have a good idea about how to generate the names of the chords because the relationship between 
+the notes in the chord is just dictated by their interval). 
+I think a challenge would be to find a way to visually display the chord on the staff instead of just naming the notes in 
+the chord.
