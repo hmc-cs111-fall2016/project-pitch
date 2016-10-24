@@ -114,6 +114,7 @@ This clutters up the syntax for someone who is unfamiliar with it.
 However, as mentioned before, this is designed for linguists.
 Qtree's documentation states that
 > The front end of _qtree_ reads a tree description written in the familiar (to linguists) bracket notation. 
+
 However, I found this bracket notation confusing.
 Furthermore, this package requires a lot of work-around to get it to draw tableau trees.
 [Here](https://github.com/cpence/latex-tableaux) is a page that explains how to wrangle qtree to make it work for tableau trees.
