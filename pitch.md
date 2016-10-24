@@ -30,7 +30,7 @@ before deciding on a final position for the cue. In the below picture, on
 the right side, you can see how these cues are traditionally recorded: in pencil
 on paper in the margin of the script:
 
-![Prompt Book Example](/promptBookExample.jpg "Example Prompt Book")
+![Prompt Book Example](promptBookExample.jpg)
 
 During a production, *each* of the designers will create cue sheets that
 look something like:
