@@ -57,7 +57,7 @@ things that the user can define is the speed of the line, the weight of the line
 color of the line, and whether or not the line will disappear as it travels (otherwise 
 default values will be set). Here is an example of the code I am envisioning:
 
-_// Creates two small spirals at the same time
+```// Creates two small spirals at the same time
 Start (50, 50) 
 Right: 10
 Down: 10
@@ -66,9 +66,9 @@ Up: 15
 Right: 20
 Down: 20
 Left: 25
-Up: 25_
+Up: 25
 
-_Start (100, 50)
+Start (100, 50)
 Right: 10
 Down: 10
 Left: 15
@@ -76,11 +76,12 @@ Up: 15
 Right: 20
 Down: 20
 Left: 25
-Up: 25_
+Up: 25
+```
 
 But I also want the user to be able to store and reuse a set of rules, so the code could be rewritten as follows:
 
-_// Creates two small spirals
+```// Creates two small spirals
 Rule spiralRule = 
 {
 	Right: 10
@@ -91,17 +92,18 @@ Rule spiralRule =
 	Down: 20
 	Left: 25
 	Up: 25
-}_
+}
 
-_Start (50, 50)
-Do spiralRule_
+Start (50, 50)
+Do spiralRule
 	
-_Start (100, 50)
-Do spiralRule_
+Start (100, 50)
+Do spiralRule
+```
 
 Finally, here is an example of the same code with the including values of speed, weight, color, and disappearance.
 
-_// Creates one fleeting red spiral and one blue spiral
+```// Creates one fleeting red spiral and one blue spiral
 Rule spiralRule = 
 {
 	Right: 10
@@ -112,22 +114,23 @@ Rule spiralRule =
 	Down: 20
 	Left: 25
 	Up: 25
-}_
+}
 
-_Speed(20)
+Speed(20)
 Weight(50)
 Color(red)
-Disappearance(true)_
+Disappearance(true)
 
-_Start (50, 50)
-Do spiralRule_
+Start (50, 50)
+Do spiralRule
 
-_Speed(20)
+Speed(20)
 Weight(50)
-Color(blue)_
+Color(blue)
 	
-_Start (100, 50)
-Do spiralRule_
+Start (100, 50)
+Do spiralRule
+```
 
 ## Operation (semantics)
 _What might happen when a program runs? Is there a computational model that
