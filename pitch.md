@@ -11,10 +11,10 @@ them?_
 This language helps people who want to create 2D line animations in a novel way. 
 Digital animation can initially be difficult to learn and often requires knowledge 
 of digital illustration platforms as well as some programming skills. Though there 
-already exists some good programming languages for animation, such as Processing, 
+already exist some good programming languages for animation, such as Processing, 
 the domain of these languages is fairly broad and can still be intimidating for those 
 who have never programmed before. The limited expressiveness of my language can be 
-very appealing to those who don’t want to create digital art, in the form of 2d 
+very appealing to those who want to create digital art, in the form of 2d 
 animations, but don’t want to invest too much time. In particular, I think this 
 language can be a nice introduction to coding for those who have never programmed 
 before because of its simple syntax and limited vocabulary. 
