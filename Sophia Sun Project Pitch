@@ -91,10 +91,6 @@ However, I chose not to go through with this idea. Although the result would be 
 
 I think my newest idea is the right way to interact with the problem domain because when musicians look up the chords for a song, they want to be able to play the music right away, and I want my program to be as hassle-free as possible. I think copying the chord names from an existing chord sheet is relatively easy to do. Also, this input file would be a txt file, so the user doesn't have to download anything special to input the chord names. Also, copy/pasting in the name of the chord requires no understanding of music theory, which I do not expect for my users to have. 
 
-There are fancier features I'm thinking of, which I will list here. I don't know if I have the time and ability to follow through with them, and they are definitely lower priority features:
-+ 
-
-
 
 ### Operation (semantics)
 # What might happen when a program runs? 
@@ -224,7 +220,25 @@ to create a very simple score. However, this would probably end up adding even m
 
 
 # More information about the needs user and about the suitability of the idea as a CS 111 project (all the angles, the benefits and drawbacks, risks, etc.)
++ More benefits: 
++ I think it really fits the skill level and knowledge base of my users (and there are a lot of possible users!) 
++ I can ask an outside software, such as LilyPond, to do the difficult work of displaying the notes on a sheet music.
+
++ More drawbacks/risks:
++ The DSL requires some kind of communication with another soft 
++ If i want the error messages to be very understandable and helpful, I might need to anticipate a lot of different types of errors.
++ At this point, I'm not very familiar with LilyPond, so I might not be able to anticipate all the errors that occur when my DSL communicates with it. That means that i might not always be able to provide the best error messages.
+
 
 # Challenges of the project and my current open questions about the project
++ Challenges: communicating my DSL to LilyPond. I'm not that familiar with LilyPond, and I don't know how a DSL can communicate with it, so I will have to put in a lot of work to understand how LilyPond words and fit my DSL to it.
++ Open question: what kinds of software does the user need to have installed on his/her computer for this to work??
 
 # Initial, well-reasoned speculation about how the implementation will proceed, including: what you plan to work on first, whether the project might work best as an internal or external language, candidates for potential host languages, etc.
++ What I plan to work on first: the basic features are outlined in this pitch.
++ Whether the project might work best as an internal or external language: I think the project might work best as an external language, because I want the user input to be as abstracted from the 
+parsing and intermediate representations as possible. This is because the user of the language is someone who has found a chord sheet and wants to play it asap, and thus needs a quick and easy way to translate the chords he/she finds into sheet music. I also expect the user to be a music fan who can read sheet music, but not enough theory to quickly read chord sheets. Thus, I want to keep the program as simple as possible.
++ Candidates for potential host languages: I think the best language to use would be Scala? Through the Piconot lab, I learned how to read in lines of a txt file and to parse a string. I think the input of my project is similar to the input of the Piconot lab, and thus I might use Scala. I'm also not familiar with how to use other languages, which is why I'm choosing Scala!
++ There are fancier features I'm thinking of, beyond the basic features I've already described. They are definitely lower priority features:
++ Right now, my program doesn't take into account lyrics of a song, or the lengths of chords. If possible, it would be interesting to have the user specify a tempo for the song (would require some music theory knowledge, but reasonable for someone who can read sheet music!) and it would be cool for the user to specify the time signature of a song, and the number of beats each chord should take up.
++ in terms of lyrics, I would add the lyrics feature after I implement the length of the notes. For example, if I want an A Major chord to last 3 beats and fit in the lyrics "I love to sing!" then one line of the txt file would be AMaj 3 "I love to sing!" and then somehow I will parse this and display the lyrics "I love to sing!" above the 3-beat A Major chord in the score. 
