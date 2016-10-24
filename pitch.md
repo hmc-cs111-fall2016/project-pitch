@@ -57,7 +57,8 @@ things that the user can define is the speed of the line, the weight of the line
 color of the line, and whether or not the line will disappear as it travels (otherwise 
 default values will be set). Here is an example of the code I am envisioning:
 
-```// Creates two small spirals at the same time
+```
+// Creates two small spirals at the same time
 Start (50, 50) 
 Right: 10
 Down: 10
@@ -81,7 +82,8 @@ Up: 25
 
 But I also want the user to be able to store and reuse a set of rules, so the code could be rewritten as follows:
 
-```// Creates two small spirals
+```
+// Creates two small spirals
 Rule spiralRule = 
 {
 	Right: 10
@@ -103,7 +105,8 @@ Do spiralRule
 
 Finally, here is an example of the same code with the including values of speed, weight, color, and disappearance.
 
-```// Creates one fleeting red spiral and one blue spiral
+```
+// Creates one fleeting red spiral and one blue spiral
 Rule spiralRule = 
 {
 	Right: 10
