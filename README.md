@@ -54,8 +54,9 @@ Great responses (i.e., responses that receive a 4) will additionally:
 
 ## Critiques
 
-After the submission deadline, I'll assign critique teams. You'll meet in the
-teams during Monday's class, where you'll generate some material for your first
+After the submission deadline, I'll assign critique teams. 
+**Update:** [Here are the teams](https://github.com/hmc-cs111-fall2016/project-pitch/wiki/Teams)
+You'll meet in the teams during Monday's class, where you'll generate some material for your first
 critique. The critique will then be due Tuesday night.
 
 Here are some suggestions for critiques:
