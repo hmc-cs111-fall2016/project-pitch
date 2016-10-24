@@ -1,7 +1,7 @@
 # Succinct Scheduling
 
 ## Describe your project in five words
-_Describe schedules sucinctly and precisely._
+Describe schedules sucinctly and precisely.
 
 ## Audience
 _Who are you helping, with your language? What is that person's
@@ -195,6 +195,7 @@ language? Are there parts of the language you think could be improved?_
 As I mentioned there are definitely already DSLs in this domain:
  * [WhenIsGood](http://whenisgood.net/)
  * [When2Meet](http://www.when2meet.com)
+
 These are indeed DSLs because they are computerized schedulers
 with a specific syntax (painting over certain blocks), and associated
 semantics (painted blocks are free blocks).
