@@ -54,13 +54,15 @@ important to users and what kinds of values those properties might have._
 
 As hinted at above, users can suggest time zones, constraints on hours (i.e.
 9am - 6pm), how long the event will occur for, and how long it takes the user to get
-to where they need to be for the event or meeting.
+to where they need to be for the event or meeting. The user will also put dates
+on and between which they want the event to take place.
 
 For time zones, I would use the time zone's three letter codes, e.g. "PDT". Both
 constaints on hours and how long the event will occur for would be in the form
 of integers. Constaints will have two numbers, and if only one is given, the
 tool would assume the event has to occur on or after that time. The user can
 also ignore the starting time constaint by putting an underscore in its place.
+The date range that the event should happen is provided in a similar fashion.
 The time it takes for the user to get to where they need to be for the event
 would also be an integer, but perhaps in the future it can leverage Google Maps
 and give an estimate through the user providing a starting location and an
@@ -72,12 +74,20 @@ corresponds with your domain? How does a program interact with the
 user? What kinds of semantic (i.e., non-syntax) errors might occur, and how
 might they be communicated to the user?_
 
-
+When the program runs, the user inputs conditions or constaints and the program
+will return the hour/minute times delimited by their respective dates. The
+computational model that corresponds with this DSL/tool is "constraint
+satisfaction". The program provides output according to the user's input. The
+possible semantic errors that I can foresee are constaints that yield no
+available times, in which case the program will output a sentence saying so.
 
 
 ## Expressiveness
 _What should be easy to do in this language? What should be possible, but
 difficult? What should be impossible or very difficult?_
+
+It should be easy to query free times based on the provided constraints
+and conditions.
 
 
 ## Related work
@@ -86,6 +96,12 @@ aren't and conjecture why not. If so, describe them and provide links. How well
 do they address the need? Are there any particularly admirable qualities of the
 language? Are there parts of the language you think could be improved?_
 
+Google Calendar itself provides a "find a time" feature IF you are planning an
+event by inviting multiple people. However, I've never used that feature. This
+feature is also (as far as I know) not available when the planning is just for
+you, or if you need to provide a list of avialable times. There probably isn't
+a similar tool like this because the problem seems more or less trivial, and it
+is at most seen as a nuisance when needing to plan things.
 
 ## Suitability
 _What percentage of your time do you think will be spent directly engaging in
@@ -93,12 +109,38 @@ the **language** aspects of this project (e.g., making language design
 decisions), as opposed to "systems" aspects of the project (e.g., implementing a
 complicated semantics that doesn't require a lot of language design)?_
 
+I think it will be split half and half. The language needs to be defined well
+enough to be unambiguous and still be an efficient way to do what it is supposed
+to do (i.e. query and return free times). Since this tool will most likely be
+built on top of the Google Calendar API, it might take some effort to translate
+what the API returns into a form that the program can then query.
 
 ## Scope
 _How big an idea is this? How ambitious is this project?_
 
+Depending on how detailed the constraints can be, this could be a very ambitious
+project. For what I've defined above, it seems to have an "average" amount of
+ambition and should be very doable.
 
 ## Challenges and opportunities
 _Why is this a good project? What are some challenges you expect to face? How
 might you overcome them? What are some warning signs that the project has gotten
 off track, and how will you get the project back on track if needed?_
+
+This is a good project because I will definitely use it! And hopefully others
+will as well! Some challenges I expect to face would be the systems design of
+how to translate the data produced by the Google Calendar API into a structure
+that is convenient to query.
+
+Not super sure on what warning signs could look like as of now, but probably
+doing too much to wrestle with the API would probably signal that I am putting
+too much emphasis in the wrong places. At that point, it might be worth it to
+consider alternatives to using the GCal API (perhaps forgoing relying on an
+external system and just query a file format of events that is convenient). At
+this moment, there are no plans to make this program a full-blown calendar app,
+so too many additional functionalities on that front would probably mean the
+emphasis has changed and that I should re-evaluate which features are definitely
+needed, which are nice-to-haves, and which are superfluous to the project. Then
+I would cut out all the superfluous and hold off on the nice-to-haves until all
+the needed features are there, then re-evaluate the project at that time.
+
