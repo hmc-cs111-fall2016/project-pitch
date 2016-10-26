@@ -1,0 +1,244 @@
+# Sheet Music Generator
+
+## Describe your project in five words
+
+Translating chord names -> sheet music 
+
+### Audience
+
+# Who are you helping, with your language? 
+
+Many people who love music and want to play the piano accompaniment for a song cannot read guitar chord tabs, but can read piano sheet music.
+
+My project would meet the need of those who want chords to be presented in the form of notes on a musical staff, instead of in the form of a guitar tab sheet. 
+
+# What is that person's experience like now?
+
+Right now, to play the accompaniment of a song, a user has to:
+Look up the chords on a site like https://tabs.ultimate-guitar.com
+Read the letters and numbers that make up the name of a chord
+Understand what notes are in a chord, given its name 
+FIgure out how those chords can be played on the piano
+
+# How would their experience be better if you could help them?
+If I could help them, they would be able to directly translate from the name of a chord to seeing a depiction of the chord, dictated on a musical staff. 
+
+For example, my language would parse the name of the chord given by the user and translate the name of the chord (such as “GDom7”) into its notation on a musical staff (on sheet music). On the sheet music, the user would see 4 notes representing “G B D F”, which are the notes that make up the “GDom7” chord. 
+
+The users would be able to more quickly play the accompaniment part of a song they like on the piano! Instead of having to search up the chords and try to decipher how to play each chord, my DSL will help them translate the name of the chord to an image of the musical staff with the chord notated on it.  
+
+### Why a language?
+# Why is a DSL appropriate for your user(s)? 
+
+A DSL would be appropriate for my users because what they lack is the translation from the name of a chord to visualizing 1) the notes that comprise the chord and 2) the intervals between the different notes. Chords are typically described with a the root, quality, and inversion -- which is a language itself. My DSL would parse that input and translate it into a language that a program such as LilyPad would understand. 
+
+The domain specificity of this language is important; this language does not have to perform the function of a general programming language, but what it should do is provide just enough functionality for users to input the name of a chord and as output, see the chord dictated on a musical staff. If the language was not domain specific, the learning curve might be unnecessarily steep for the function/goal of the language, and might involve a lot of unnecessary elements that are unrelated to the user’s goals. To eliminate unnecessary functionality, I want to create a 
+
+# How does it address the need?
+
+Again, my users are people who can sight read sheet music but may not know much music theory. My DSL addresses the need because it translates from the name of a musical chord to a visual display of the chord mapped onto sheet music. The chord is in the form of sheet music, which is a better representation of a chord than the "name" of the chord, which is what traditional chord sheets offer. This output that my DSL offers is a more accessible and readable version of chord sheets that the user would otherwise have to struggle to read and understand before he/she can play the chord on the piano. My DSL will hopefully help people find chord sheets more accessible! 
+
+### Why you?
+# What excites you about this idea? 
+
+I am fortunate to have perfect pitch, so it’s always been very easy for me to hear music and know how to play the melody and accompaniment on the piano. I also compose / arrange music using MuseScore, which is a free and relatively-intuitive software. However, I’m always thinking of composing tools for people who can read simple sheet music but do not have the musical theory background that I’ve been fortunate to develop. I think about people like my mom, who can read basic piano sheet music, but cannot read chord sheets (which only display the name and inversion of chords). This requires a much greater understanding of key signatures and intervals because the user is given the name of the chord and must infer the notes in a chord, whereas reading basic piano sheet music just requires pressing all the keys that the sheet music indicates.
+ 
+# How did you come up with it?
+
+I came up with my idea for this project while looking at the DSL that played the Batman theme song from an Excel spreadsheet! 
+
+
+### Interface (syntax)
+# What kinds of things can the user say in your language. How, generally, do they say it?  
+
+There are two ways that I envision for a user to interact with the language. One way would be for the user to open a text file and write the name of a chord on each line. For example, if the user wanted to translate nine chords, he/she would list them like this:
+
+GDom7
+bdim65
+Ab7/EB
+Db/F
+Gb
+Db/F
+Bb7/D
+Gb 
+Bb7
+
+One thing I have to account for is that there are a lot of different ways to express the name of a chord. For example, sometimes whether a chord is major or minor is determined by whether the letter representing the root of the chord is lowercase or uppercase. Sometimes, instead of representing the inversion of a chord numerically, the chord sheet just specifies the root of the chord. These are things I need to be careful about in terms of parsing. 
+
+The user would be able to say the root of the chord, the quality of the chord, and the inversion of the chord.
+
+For the root of the chord, the user has the following options:
+A A# Ab B B# Bb C C# Cb D D# Db E Eb F F# G G# Gb 
+a a# ab b b# bb c c# cb d d# db e eb f f# g g# gb 
+
+For the quality of the chord, the user has the following options:
+Maj M Min m Dom dom Dim dim (I allow for capital / lowercase because I want to make sure that my DSL works with a variety of input types).
+
+For the inversion of the chord, the user has the following options: 
+7 65 43 2 64 63 9
+The user can also specify the inversion of the chord using a name in the chord that is the base, represented by any of the following: 
+A A# Ab B B# Bb C C# Cb D D# Db E Eb F F# G G# Gb 
+
+Generally, I expect the user to copy paste the chord names from an existing chord sheet. 
+
+Another idea that I had in the previous brainstorming assignment is for my language to provide a text input box that allows the following drop down boxes:
+root of the chord
+quality of the chord
+inversion of the chord
+base note of the chord
+
+However, I chose not to go through with this idea. Although the result would be easier to parse (the input format separates different elements that I would otherwise have to parse through a string representing many aspects of the entire chord), I think creating the interface would be a lot of work. Also, a user might not want to spend time translating existing chords into my program, especially if this would require some knowledge about parsing the chords. This is also very tedious and time consuming.
+
+I think my newest idea is the right way to interact with the problem domain because when musicians look up the chords for a song, they want to be able to play the music right away, and I want my program to be as hassle-free as possible. I think copying the chord names from an existing chord sheet is relatively easy to do. Also, this input file would be a txt file, so the user doesn't have to download anything special to input the chord names. Also, copy/pasting in the name of the chord requires no understanding of music theory, which I do not expect for my users to have. 
+
+
+### Operation (semantics)
+# What might happen when a program runs? 
+
+The parser needs to break up each line of the text file into a separate String. I think parsing might be really tricky because there are different ways to express a chord with the same root, quality, and inversion. The program needs to break up the input into several features: the root of the chord, quality, and inversion.
+
+I will have some sort of array that contains all the possible notes in a chord. The array starts with A, and each note is a half step apart: 
+A A# Ab B B# Bb C C# Cb D D# Db E Eb F F# G G# Gb 
+Index 0: A
+Index 1: A# / Bb
+Index 2: B 
+Index 3: B# / C 
+Index 4: C# / Db
+Index 5: D 
+Index 6: D# / Eb
+Index 7: E
+Index 8: F
+Index 9: F# / Gb
+Index 10: G
+Index 11: G# / Ab
+
+My program takes the root of the chord and the quality of the chord and finds the notes that are in this chord. If the input specifies the root but not the quality of the chord, then I know that a lower case root represents a minor chord with that root, and an upper case root represents a major chord with that root. For example, that means that the input string BMin is the same chord as b. 
+
+All chords of the same quality (Major, minor, diminished, augmented, diminished 7th, Dominant 7th, Major 7th, etc) are composed of notes that are the same interval apart. For example, an A major chord is A C# E, and a C major chord is C E G. As you can see from the array above, 
+A = index 0, 
+C# = index 4, 
+E = index 7, 
+and 
+C = index 3,
+E = index 7, 
+G = index 10. 
+
+As you can tell, the difference between the first note and the second note is 7-3 = 4-0 = 4 half steps.
+The difference between the second note and the third note is 10-7 = 7-4 = 3 half steps. I will tell my program what set of intervals are between the different notes depending on the quality of the chord, and it will return the notes that are in the chord!!
+Then, the program would look at what inversion was specified (and if there was no inversion, assume a root position of the chord), and rearrange the order of the notes in the chord accordingly.
+
+Then the program compiles my DSL into a LilyPond program/code, 
+and LilyPond actually creates the sheet music for the user based on the notes and the order of the notes generated by my 
+program. LilyPond then does all the hard work of displaying the notes.
+
+# Is there a computational model that corresponds with your domain? 
+
+I'm not sure what the computational model means, but if it's what I understand, 
+I think I already described it above when I explained how I train the computer to output notes based on root, chord quality, and inversion.
+
+# How does a program interact with the user? 
+
+The program asks the user to submit a txt file with the list of chords, each chord on one line of the txt file. 
+
+# What kinds of semantic (i.e., non-syntax) errors might occur, and how might they be communicated to the user?_
+
+There are ways to express a chord that may be outside of what I'm programming my parser to be able to understand. For example,
+I am parsing "Maj" and "Major" as a major chord. However, it's possible that a non-standard input might be "MAJOR" or "MAJ" or
+"Maj." My program could suggest a few possible key words that can replace the input, and tell the user which line threw an error.
+
+It's also possible that the chord sheet proposes a chord that doesn't exist (typo). The user might copy/paste
+in the name of a chord such as T Major with an inversion of 6/2. In this case, the program doesn't recognize T as a 
+possible root, and it would return that in an error message.
+
+### Expressiveness
+# What should be easy to do in this language?
+What should be really easy is to generate at least the names of all the notes that comprise a given chord that the user specifies.
+
+# What should be possible, but difficult? 
+What should be possible, but difficult, is to add a sound component to the program. 
+After the program determines the notes in a chord, presents a visual representation of the chord on a musical staff, 
+it might also have the functionality of playing the chord, note by note from the bottom note to the top note. 
+
+# What should be impossible or very difficult?
+
+What should be impossible is something outside the domain of generating the duration (length) of each chord. 
+There will be no opportunity for the user to input this sort of information.
+
+## Related work
+_Are there any other DSLs in this domain? If not, describe how you know there
+aren't and conjecture why not. If so, describe them and provide links. How well 
+do they address the need? Are there any particularly admirable qualities of the
+language? Are there parts of the language you think could be improved?_
+
+I searched google and scoured various composing tool threads with the following key phrases
+“chord name sheet music converter", "generate sheet music", "generate chords on sheet music",
+and didn’t find any existing DSL that is similar to my idea.
+
+This could be because most people who play accompaniment music play the guitar -- 
+there actually exists many "chord identifier" / "reverse chord finder" tools that prompt users to select 
+fingering positions on a guitar and then show users what possible chords are comprised of those notes. 
+
+
+### Suitability
+_What percentage of your time do you think will be spent directly engaging in
+the **language** aspects of this project (e.g., making language design
+decisions), as opposed to "systems" aspects of the project (e.g., implementing a
+complicated semantics that doesn't require a lot of language design)?_
+
+I don't think there will be a lot of language decisions -- 
+the input I need only requires 4 basic pieces of information from the user, probably in the form of some combination of text boxes / drop-down menus / check boxes.
+
+
+### Scope
+# How big an idea is this? How ambitious is this project?
+
+I don't think this idea is too ambitious -- it's very easy to generate the names of the notes in a chord given the root, 
+type of chord, and inversion. The tricky part would be to translate that into a visual representation of the chord. 
+Maybe I could have a staff with ovals that represent each note, and after I generate the names and order of the notes 
+in the chord, I could just enable those notes to be "visible" on the staff, and allow the user to download an image of the generated chord on the staff. 
+
+### Challenges and opportunities
+_Why is this a good project? What are some challenges you expect to face? How
+might you overcome them? What are some warning signs that the project has gotten
+off track, and how will you get the project back on track if needed?_
+
+I think this project really fits the bill of being a domain specific language, 
+and will hopefully provide a helpful abstraction for the process of actually writing out each of the notes of a chord 
+on a musical staff. 
+
+This might not be a good idea because it involves writing notes on a staff, which may require my language to communicate 
+with an existing composition software. I can understand how to generate all the notes of a chord (given a root and key 
+signature of a chord, I have a good idea about how to generate the names of the chords because the relationship between 
+the notes in the chord is just dictated by their interval). 
+I think a challenge would be to find a way to visually display the chord on the staff instead of just naming the notes in 
+the chord.
+
+Overall, I think the language component seems much smaller than the "systems" aspect. I think the language also has the 
+possibility for extensibilityby allowing the user to indicate the time signature, length of the note, and rests 
+to create a very simple score. However, this would probably end up adding even more to the systems aspect. 
+
+
+
+# More information about the needs user and about the suitability of the idea as a CS 111 project (all the angles, the benefits and drawbacks, risks, etc.)
++ More benefits: 
++ I think it really fits the skill level and knowledge base of my users (and there are a lot of possible users!) 
++ I can ask an outside software, such as LilyPond, to do the difficult work of displaying the notes on a sheet music.
+
++ More drawbacks/risks:
++ The DSL requires some kind of communication with another soft 
++ If i want the error messages to be very understandable and helpful, I might need to anticipate a lot of different types of errors.
++ At this point, I'm not very familiar with LilyPond, so I might not be able to anticipate all the errors that occur when my DSL communicates with it. That means that i might not always be able to provide the best error messages.
+
+
+# Challenges of the project and my current open questions about the project
++ Challenges: communicating my DSL to LilyPond. I'm not that familiar with LilyPond, and I don't know how a DSL can communicate with it, so I will have to put in a lot of work to understand how LilyPond words and fit my DSL to it.
++ Open question: what kinds of software does the user need to have installed on his/her computer for this to work??
+
+# Initial, well-reasoned speculation about how the implementation will proceed, including: what you plan to work on first, whether the project might work best as an internal or external language, candidates for potential host languages, etc.
++ What I plan to work on first: the basic features are outlined in this pitch.
++ Whether the project might work best as an internal or external language: I think the project might work best as an external language, because I want the user input to be as abstracted from the 
+parsing and intermediate representations as possible. This is because the user of the language is someone who has found a chord sheet and wants to play it asap, and thus needs a quick and easy way to translate the chords he/she finds into sheet music. I also expect the user to be a music fan who can read sheet music, but not enough theory to quickly read chord sheets. Thus, I want to keep the program as simple as possible.
++ Candidates for potential host languages: I think the best language to use would be Scala? Through the Piconot lab, I learned how to read in lines of a txt file and to parse a string. I think the input of my project is similar to the input of the Piconot lab, and thus I might use Scala. I'm also not familiar with how to use other languages, which is why I'm choosing Scala!
++ There are fancier features I'm thinking of, beyond the basic features I've already described. They are definitely lower priority features:
++ Right now, my program doesn't take into account lyrics of a song, or the lengths of chords. If possible, it would be interesting to have the user specify a tempo for the song (would require some music theory knowledge, but reasonable for someone who can read sheet music!) and it would be cool for the user to specify the time signature of a song, and the number of beats each chord should take up.
++ in terms of lyrics, I would add the lyrics feature after I implement the length of the notes. For example, if I want an A Major chord to last 3 beats and fit in the lyrics "I love to sing!" then one line of the txt file would be AMaj 3 "I love to sing!" and then somehow I will parse this and display the lyrics "I love to sing!" above the 3-beat A Major chord in the score. 
