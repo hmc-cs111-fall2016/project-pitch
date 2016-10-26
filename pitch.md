@@ -2,6 +2,8 @@
 
 ## Describe your project in five words
 
+Return availability under inputted constraints
+
 ## Audience
 _Who are you helping, with your language? What is that person's
 experience like now? How would their experience be better if you could help
